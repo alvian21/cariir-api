@@ -1,6 +1,6 @@
-# Radar Karier API
+# Cariir API
 
-Restful API backend service for Radar Karier, providing features including CV parsing, job scraping orchestration, and job recommendations. Built using Node.js, Express, and PostgreSQL (via Sequelize ORM).
+Restful API backend service for Cariir, providing features including CV parsing, job scraping orchestration, and job recommendations. Built using Node.js, Express, and PostgreSQL (via Sequelize ORM).
 
 ## Features
 
@@ -20,7 +20,7 @@ Restful API backend service for Radar Karier, providing features including CV pa
 
    ```bash
    git clone <repository_url>
-   cd radar-karier-api
+   cd cariir-api
    ```
 
 2. **Install dependencies:**
@@ -34,7 +34,7 @@ Restful API backend service for Radar Karier, providing features including CV pa
 
    ```env.development
    PORT=3000
-   SERVICE_NAME=Radar Karier API
+   SERVICE_NAME=Cariir API
    JSON_LIMIT=10mb
    # Database connection credentials for Sequelize...
    ```
