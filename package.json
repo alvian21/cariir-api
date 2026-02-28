@@ -7,7 +7,11 @@
   "scripts": {
     "dev": "nodemon -L ./app.js",
     "start": "node ./app.js",
-    "test": "vitest"
+    "test": "vitest",
+    "migrate": "npx sequelize-cli db:migrate",
+    "seed": "npx sequelize-cli db:seed:all",
+    "migrate:undo": "npx sequelize-cli db:migrate:undo",
+    "seed:undo": "npx sequelize-cli db:seed:undo:all"
   },
   "author": "",
   "license": "ISC",
