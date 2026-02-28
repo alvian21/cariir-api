@@ -3,7 +3,7 @@ import { print } from "../functions/output.js";
 import { genSalt, hash, compare } from "bcrypt";
 import pkg from "jsonwebtoken";
 
-const { User } = db;
+const { User, Role } = db;
 const { sign } = pkg;
 
 export async function register(req, res) {
@@ -21,11 +21,20 @@ export async function register(req, res) {
     const salt = await genSalt(10);
     const hashedPassword = await hash(password, salt);
 
+    const role = await Role.findOne({ where: { name: "user" } });
+    if (!role) {
+      return print(req, res, {
+        code: "BAD_REQUEST",
+        message: "Role not found",
+      });
+    }
+
     const user = await User.create({
       fullName,
       email,
       password: hashedPassword,
       isActive: true,
+      roleId: role.id,
     });
 
     const userData = user.toJSON();
