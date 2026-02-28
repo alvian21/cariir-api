@@ -1,0 +1,58 @@
+import z from "zod";
+
+const createRoleSchema = z.object({
+  body: z.object({
+    alias: z
+      .string({
+        required_error: "Alias is required",
+        invalid_type_error: "Alias must be a string",
+      })
+      .min(1, "Alias cannot be empty"),
+    name: z
+      .string({
+        required_error: "Name is required",
+        invalid_type_error: "Name must be a string",
+      })
+      .min(1, "Name cannot be empty"),
+    isActive: z
+      .boolean({
+        invalid_type_error: "isActive must be a boolean",
+      })
+      .optional(),
+  }),
+});
+
+const updateRoleSchema = z.object({
+  params: z.object({
+    id: z
+      .string({
+        required_error: "Role ID is required",
+        invalid_type_error: "Role ID must be a string",
+      })
+      .uuid("Invalid Role ID format"),
+  }),
+  body: z.object({
+    alias: z
+      .string({
+        invalid_type_error: "Alias must be a string",
+      })
+      .min(1, "Alias cannot be empty")
+      .optional(),
+    name: z
+      .string({
+        invalid_type_error: "Name must be a string",
+      })
+      .min(1, "Name cannot be empty")
+      .optional(),
+    isActive: z
+      .boolean({
+        invalid_type_error: "isActive must be a boolean",
+      })
+      .optional(),
+  }),
+});
+
+export default {
+  createRoleSchema,
+  updateRoleSchema,
+};

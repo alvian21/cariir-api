@@ -1,0 +1,16 @@
+import { createRequire } from "module";
+const require = createRequire(import.meta.url);
+const messages = require("../config/messages.json");
+
+export function print(req, res, params) {
+  let output = {};
+  let message = {};
+  if (messages[params.code]) message = messages[params.code];
+  output.status = message.status || 200;
+  output.code = message.code || params.code;
+  output.message = params.message || message.message;
+  output.data = params.data || message.data;
+  output.debug = undefined;
+
+  return res.status(message.status || 200).json(output);
+}
