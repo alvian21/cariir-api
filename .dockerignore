@@ -1,0 +1,11 @@
+node_modules
+npm-debug.log
+.env*
+.git
+.github
+Dockerfile
+docker-compose.yml
+.gitignore
+package-lock.json
+SYSTEM_DESIGN.md
+README.md

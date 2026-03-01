@@ -1,7 +1,7 @@
 module.exports = {
   apps: [
     {
-      name: "cariir_api",
+      name: "cariir-api",
       script: "app.js",
       instances: 1,
       autorestart: true,
