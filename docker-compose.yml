@@ -6,7 +6,7 @@ services:
     image: cariir-api
     restart: always
     ports:
-      - "127.0.0.1:7310:7310"
+      - "7310:7310"
     tty: true
     container_name: cariir-api
     env_file:
